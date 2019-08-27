@@ -1,9 +1,9 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= I18n.t("errors.messages.not_saved",
+      <%= I18n.t("errors.messages.not_saved", #I18n Internationalization Gem--can make multilingual sites with this
                  count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
+                 resource: resource.class.model_name.human.downcase) 
        %>
     </h2>
     <ul>
