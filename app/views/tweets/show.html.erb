@@ -12,3 +12,8 @@
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>
+<p>
+	<strong>User:</strong>
+	<%= link_to @tweet.user.username, show_user_path(id: @tweet.user.id) %>
+	<!-- generating a hyperlink so we can show the user id -->
+</p>
