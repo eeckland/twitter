@@ -4,9 +4,17 @@
 
 <div>
     <% @following_tweets.each do |tweet| %>
-        <div>
-	    <p>@<%= tweet.user.username %></p>
-	    <p><%= tweet.message.html_safe %></p>
-	</div>
+        <div class="well">
+        <p> 
+	    <%= image_tag tweet.user.avatar.url, :size => '100x110' %>
+
+	    <%= link_to tweet.user.name, show_user_path(id: tweet.user_id) %>
+	    @<%= link_to tweet.user.username, show_user_path(id: tweet.user_id) %>
+	    <%= time_ago_in_words(tweet.created_at) if Time.now - tweet.created_at < 86400 %>
+	    <%= tweet.created_at.strftime('%b%e') if Time.now - tweet.created_at > 86400 %>
+
+		</p>
+		<%= tweet.message.html_safe %>
+		</div>
     <% end %>
 </div>
